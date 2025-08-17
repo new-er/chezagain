@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/new-er/chezagain/chezmoi"
+	"github.com/new-er/chezagain/git"
 )
 
 const (
@@ -11,7 +12,7 @@ const (
 )
 
 func main() {
-	diffs,err := chezmoi.GetDiffs()
+	diffs, err := chezmoi.GetDiffs()
 	if err != nil {
 		panic(err)
 	}
@@ -36,4 +37,9 @@ func main() {
 		chezmoi.Add(fmt.Sprintf("%s/%s", "~/", diff.FilePath))
 		println(diff.FilePath)
 	}
+
+	chezmoi.ChangeDirectory()
+	git.AddAll()
+	git.Commit("add diffs")
+	git.Push()
 }

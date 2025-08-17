@@ -29,11 +29,6 @@ func Add(path string) error {
 	return cmd.Run()
 }
 
-func ChangeDirectory() error {
-	cmd := exec.Command("chezmoi", "cd")
-	return cmd.Run()
-}
-
 type Diff struct {
 	FilePath string
 }

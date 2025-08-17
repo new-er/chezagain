@@ -38,7 +38,6 @@ func main() {
 		println(diff.FilePath)
 	}
 
-	chezmoi.ChangeDirectory()
 	git.AddAll()
 	git.Commit("add diffs")
 	git.Push()

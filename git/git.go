@@ -19,7 +19,7 @@ func Commit(message string) error {
 
 
 func Push() error {
-	println("Pushing changes to remote repository...")
+	println("Pushing changes to remote repository... ")
 	cmd := exec.Command("git", "push")
 	return cmd.Run()
 }
